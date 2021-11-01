@@ -32,7 +32,7 @@ app.listen(port, () =>
 
 // for demo
 app.get('/upload-file', (req, res) => {
-    mammoth.convertToHtml({path: './uploads/word.docx'})
+    mammoth.convertToHtml({path: './uploads/Demo.docx'})
                 .then(function(result){
                     let html = result.value; // The generated HTML
                     let messages = result.messages; // Any messages, such as warnings during conversion
