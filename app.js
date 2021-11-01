@@ -30,6 +30,21 @@ app.listen(port, () =>
   console.log(`App is listening on port ${port}.`)
 );
 
+// for demo
+app.get('/upload-file', (req, res) => {
+    mammoth.convertToHtml({path: './uploads/word.docx'})
+                .then(function(result){
+                    let html = result.value; // The generated HTML
+                    let messages = result.messages; // Any messages, such as warnings during conversion
+    
+                    //send response
+                    res.send({
+                        html: html
+                    });
+                }).done();
+
+});
+/*
 app.post('/upload-file', async (req, res) => {
     try {
         if(!req.files) {
@@ -60,5 +75,6 @@ app.post('/upload-file', async (req, res) => {
         res.status(500).send(err);
     }
 });
+*/
 
 //http.createServer(app).listen(process.env.PORT);
